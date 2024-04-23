@@ -1,35 +1,49 @@
 'use client'
 import EstruturaGame from "@/components/EstruturaGame";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import 'normalize.css'
 import './Game.css';
 
+interface Challenger {
+  id: number;
+  countryName: string;
+  flagLink: string;
+  createdAt: string;
+  updatedAt: string;
+}
+
 export default function Game() {
 
-  class game {
-    resposta: string;
-    imagemPais: string;
-    constructor(resposta: string, imagemPais: string) {
-      this.resposta = resposta;
-      this.imagemPais = imagemPais;
-    }
-  }
 
-  const games = [
-    new game("países baixos", "https://flagcdn.com/256x192/nl.png"),
-    new game("brasil", "https://flagcdn.com/256x192/br.png"),
-    new game("alemanha", "https://flagcdn.com/256x192/de.png"),
-    new game("espanha", "https://flagcdn.com/256x192/es.png"),
-  ]
+  const [games, setGames] = useState<Challenger>({} as Challenger)
+  
+  
+  
   const [index, setIndex] = useState(0);
   const [resposta, setResposta] = useState("");
   const [status, setStatus] = useState("");
+  //console.log(games[0].countryName);
+  const gameAtual = games;
 
-  const gameAtual = games[index];
+  useEffect(() => {
+    const fetchData = async()=>{
+      const response = await fetch('http://localhost:3000/api?number=4', {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      
+      });
+      const data = await response.json();
+      setGames(data.data);
+    }
+    fetchData();
+  },[])
+
   const verificarResposta = () => {
-    if(resposta === gameAtual.resposta){
+    if(resposta == games.countryName){
       setStatus("Acertou");
-      if(index === games.length - 1){
+      if(2+2 == 3){
         alert("Fim de jogo");
         setIndex(0);
         return;
@@ -58,19 +72,19 @@ export default function Game() {
 
   return (
     <main id="conteiner">
-        <h1 id="tittle">Flag</h1>
+      <h1 id="tittle">Flag</h1>
 
-        <div id="game-conteiner">
-            <EstruturaGame 
-            pais={gameAtual.imagemPais}
-            />
-            <div className="resposta-input" >
-                <input type="text" name="" id="" value={resposta} onChange={(e)=> setResposta(e.target.value)} placeholder="Insira sua resposta"/>
-                <span className="input-icon"></span>
-            </div>
-            <button id="button-enviar" onClick={verificarResposta}>Enviar Resposta</button>
-            {resposta == gameAtual.resposta ? <p id="status-acerto">{status}</p> : <p id="status-erro">{status}</p>}
-        </div>
+<div id="game-conteiner">
+    <EstruturaGame 
+    pais={games.flagLink}
+    />
+    <div className="resposta-input" >
+        <input type="text" name="" id="" value={resposta} onChange={(e)=> setResposta(e.target.value)} placeholder="Insira sua resposta"/>
+        <span className="input-icon"></span>
+    </div>
+    <button id="button-enviar" onClick={verificarResposta}>Enviar Resposta</button>
+    {resposta == games.countryName ? <p id="status-acerto">{status}</p> : <p id="status-erro">{status}</p>}
+    </div>
     </main>
   );
 }
