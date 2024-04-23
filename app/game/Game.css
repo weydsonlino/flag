@@ -1,0 +1,91 @@
+#conteiner{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    flex-direction: column;
+    align-items: center;
+    background: #BDC8F1;
+}
+#tittle{
+    color: #000;
+    text-align: center;
+    font-family: "Kite One";
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+#game-conteiner{
+    display: flex;
+    padding: 60px 57px;
+    flex-direction: column;
+    align-items: center;
+    gap: 66px;
+    border-radius: 5px;
+    background: #8695C9;
+}
+.resposta-input{
+    display: flex;
+    width: 272px;
+    height: 24px;
+    padding: 0px 5px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#button-enviar{
+    display: flex;
+    width: 138px;
+    height: 47px;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    background: #3633B7;
+    color: #FFF;
+    font-family: Inter;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+#status-erro{
+    display: flex;
+    width: 301px;
+    height: 121px;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    left: 625px;
+    top: 250px;
+    color: #F00;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    -webkit-text-stroke-width: 1;
+    -webkit-text-stroke-color: #000;
+    font-family: "Inknut Antiqua";
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
+#status-acerto{
+    display: flex;
+    width: 301px;
+    height: 121px;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    left: 625px;
+    top: 250px;
+    color: green;
+    text-align: center;
+    text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    -webkit-text-stroke-width: 1;
+    -webkit-text-stroke-color: #000;
+    font-family: "Inknut Antiqua";
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+}
