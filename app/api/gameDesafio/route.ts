@@ -2,9 +2,17 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-async function GET() {
+async function GET(req:Request) {
+  const {searchParams} = new URL(req.url);
+  const number = searchParams.get("number");
   try {
-    const challenger = await prisma.challenger.findMany();
+    const challenger = await prisma.challenger.findUnique({
+      where: {
+        number: parseInt(number as string),
+      },
+      
+    });
+
     return Response.json({
       message: "OK",
       data: challenger,

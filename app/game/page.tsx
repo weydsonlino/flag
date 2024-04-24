@@ -3,6 +3,7 @@ import EstruturaGame from "@/components/EstruturaGame";
 import { useState, useEffect } from "react";
 import 'normalize.css'
 import './Game.css';
+import Link from "next/link";
 
 interface Challenger {
   id: number;
@@ -18,16 +19,20 @@ export default function Game() {
   const [games, setGames] = useState<Challenger>({} as Challenger)
   
   
-  
-  const [index, setIndex] = useState(0);
+  //O menor número de index é 1 pois a coluna number do banco de dados começa em 1, ela é usada para fazer a busca dos dados.
+  const [index, setIndex] = useState(1);
   const [resposta, setResposta] = useState("");
+  let respostaLower = resposta.toLowerCase();
   const [status, setStatus] = useState("");
-  //console.log(games[0].countryName);
-  const gameAtual = games;
+
+  document.title = "Flag";
+  
+  //Link para a rota que faz a busca dos dados no banco de dados com a concatenação do número do index.
+  const link :string= `http://localhost:3000/api/gameDesafio?number=${index}`;
 
   useEffect(() => {
     const fetchData = async()=>{
-      const response = await fetch('http://localhost:3000/api?number=4', {
+      const response = await fetch(link, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json'
@@ -38,11 +43,18 @@ export default function Game() {
       setGames(data.data);
     }
     fetchData();
-  },[])
-
+  },
+  //Sempre o o index for alterado o useEffect é chamado.
+  [index])
+  
+  
   const verificarResposta = () => {
-    if(resposta == games.countryName){
+
+    if(respostaLower == games.countryName){
       setStatus("Acertou");
+      setTimeout(resetarJogo, 2000);
+
+      //Mexer nisso dps
       if(2+2 == 3){
         alert("Fim de jogo");
         setIndex(0);
@@ -63,11 +75,10 @@ export default function Game() {
   }
 
   const proximoJogo = () => {
-    setIndex(index + 1)
+    setIndex(index + 1);
   }
   const resetStatus = () => {
     setStatus("");
-    setResposta("");
   }
 
   return (
@@ -83,8 +94,11 @@ export default function Game() {
         <span className="input-icon"></span>
     </div>
     <button id="button-enviar" onClick={verificarResposta}>Enviar Resposta</button>
-    {resposta == games.countryName ? <p id="status-acerto">{status}</p> : <p id="status-erro">{status}</p>}
+    {respostaLower == games.countryName ? <p id="status-acerto">{status}</p> : <p id="status-erro">{status}</p>}
     </div>
+
+
+    <Link href="/">Home</Link>
     </main>
   );
 }
