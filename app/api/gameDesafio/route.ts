@@ -2,9 +2,17 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-async function GET() {
+async function GET(req:Request) {
+  const {searchParams} = new URL(req.url);
+  const number = searchParams.get("number");
   try {
-    const challenger = await prisma.challenger.findMany();
+    const challenger = await prisma.challenger.findUnique({
+      where: {
+        number: parseInt(number as string),
+      },
+      
+    });
+
     return Response.json({
       message: "OK",
       data: challenger,
@@ -16,6 +24,7 @@ async function GET() {
 
 async function POST(req: Request) {
   const body = await req.json();
+  console.log(body);
 
   try {
     const challenger = await prisma.challenger.create({
@@ -33,28 +42,4 @@ async function POST(req: Request) {
     throw error;
   }
 }
-async function PUT(req: Request) {
-  const body = await req.json();
-  try {
-    const challenger = await prisma.challenger.update({
-      where: {
-        number: parseInt(body.newId as string),
-      },
-      data: {
-        countryName: body.newCountryName,
-        flagLink: body.newUrl,
-      },
-    });
-
-    return Response.json({
-      message: `Data updated successfully!`,
-      data: challenger,
-    });
-  } catch (error) {
-    throw error;
-  }
-}
-
-
-
-export { GET, POST, PUT };
+export { GET, POST };
