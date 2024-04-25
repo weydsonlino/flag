@@ -33,4 +33,28 @@ async function POST(req: Request) {
     throw error;
   }
 }
-export { GET, POST };
+async function PUT(req: Request) {
+  const body = await req.json();
+  try {
+    const challenger = await prisma.challenger.update({
+      where: {
+        number: parseInt(body.newId as string),
+      },
+      data: {
+        countryName: body.newCountryName,
+        flagLink: body.newUrl,
+      },
+    });
+
+    return Response.json({
+      message: `Data updated successfully!`,
+      data: challenger,
+    });
+  } catch (error) {
+    throw error;
+  }
+}
+
+
+
+export { GET, POST, PUT };

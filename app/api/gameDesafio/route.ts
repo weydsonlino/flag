@@ -24,6 +24,7 @@ async function GET(req:Request) {
 
 async function POST(req: Request) {
   const body = await req.json();
+  console.log(body);
 
   try {
     const challenger = await prisma.challenger.create({

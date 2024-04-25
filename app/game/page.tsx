@@ -29,7 +29,6 @@ export default function Game() {
   
   //Link para a rota que faz a busca dos dados no banco de dados com a concatenação do número do index.
   const link :string= `http://localhost:3000/api/gameDesafio?number=${index}`;
-
   useEffect(() => {
     const fetchData = async()=>{
       const response = await fetch(link, {
@@ -78,7 +77,7 @@ export default function Game() {
     setIndex(index + 1);
   }
   const resetStatus = () => {
-    setStatus("");
+    setStatus("")
   }
 
   return (
