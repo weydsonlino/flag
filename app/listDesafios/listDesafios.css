@@ -1,111 +1,112 @@
-#conteiner{
-    display: flex;
-    width: 100vw;
-    height: 100%;
-    flex-direction: column;
-    align-items: center;
-    background: #BDC8F1;
+#conteiner {
+  display: flex;
+  width: 100vw;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  background: #bdc8f1;
 }
-#conteiner-add-desafio{
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
+#conteiner-add-desafio {
+  display: flex;
+  width: 100px;
+  justify-content: center;
+  align-items: center;
 }
-#form{
-    display: flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 1px;
+#form {
+  width: 150px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
-#espaco-input{
-    display: flex;
-width: 1148px;
-padding: 12px 8px;
-align-items: center;
-gap: 101px;
-border: 1px solid #000;
-background: #FFF;
+#espaco-input {
+  display: flex;
+  width: 1148px;
+  padding: 12px 8px;
+  align-items: center;
+  gap: 101px;
+  border: 1px solid #000;
+  background: #fff;
 }
-.conteiner-input{
-    display: flex;
-width: 373px;
-flex-direction: column;
-align-items: flex-start;
-gap: 15px;
-flex-shrink: 0;
+.conteiner-input {
+  display: flex;
+  width: 373px;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 15px;
+  flex-shrink: 0;
 }
-.label-name{
-    color: #000;
-font-family: Inter;
-font-size: 24px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+.label-name {
+  color: #000;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
-input{
-    width: 300px;
-    color: #000;
-font-family: Inter;
-font-size: 24px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+input {
+  width: 300px;
+  color: #000;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
-button{
-    display: flex;
-padding: 10px;
-justify-content: center;
-align-items: center;
-gap: 10px;
-background: #3633B7;
+button {
+  display: flex;
+  padding: 10px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  background: #3633b7;
 }
-#conteiner-desafios{
-    display: flex;
-flex-direction: column;
-align-items: flex-start;
-gap: 20px;
+#conteiner-desafios {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 20px;
 }
-#conteiner-colum-tittle{
-    display: flex;
-width: 1148px;
-justify-content: center;
-align-items: center;
-gap: 81px;
-border: 1px solid #000;
-background: #FFF;
+#conteiner-colum-tittle {
+  display: flex;
+  width: 1148px;
+  justify-content: center;
+  align-items: center;
+  gap: 81px;
+  border: 1px solid #000;
+  background: #fff;
 }
-.collum-tittle{
-    color: #000;
-    font-family: Inter;
-    font-size: 24px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: normal;
+.collum-tittle {
+  color: #000;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
-.conteiner-list{
-    display: flex;
-width: 1148px;
-padding: 4px 0px;
-justify-content: center;
-align-items: center;
-gap: 241px;
-border: 1px solid #000;
+.conteiner-list {
+  display: flex;
+  width: 1148px;
+  padding: 4px 0px;
+  justify-content: center;
+  align-items: center;
+  gap: 241px;
+  border: 1px solid #000;
 }
-.country-name{
-    color: #000;
-font-family: Inter;
-font-size: 24px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+.country-name {
+  color: #000;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
-.flag-link{
-    color: #000;
-font-family: Inter;
-font-size: 24px;
-font-style: normal;
-font-weight: 400;
-line-height: normal;
+.flag-link {
+  color: #000;
+  font-family: Inter;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
 }
-.flag-image{
+.flag-image {
 }

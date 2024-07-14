@@ -13,13 +13,25 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Challenger {
+model CountrysFlag {
   id          String   @id @default(cuid())
   countryName String   @unique @map("country_name")
-  flagLink    String   @map("flag_link")
+  easyflagLink    String   @map("easy_flag_link")
+  hardflagLink    String   @map("hard_flag_link")
   createdAt   DateTime @default(now()) @map("created_at")
   updatedAt   DateTime @updatedAt @map("updated_at")
   number      Int      @unique @default(autoincrement())
 
-  @@map("challengers")
+  @@map("countrys_flags")
+}
+
+model User{
+  id          String   @id @default(cuid())
+  name        String
+  email       String   @unique
+  password    String
+  type        String   @default("user")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  @@map("users")
 }

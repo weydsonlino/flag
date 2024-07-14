@@ -12,6 +12,7 @@ export default function Home() {
 
       <Link href="/game">Jogo</Link>
       <Link href="/listDesafios">Todos Desafios</Link>
+      <Link href="/registration">Cadastro</Link>
     </main>
   );
 }
